@@ -10,11 +10,13 @@
     "sb": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },
-  "//": "Vercelにデプロイするためにmswをdependenciesに入れておく必要がある",
   "dependencies": {
     "msw": "^2.7.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
+  },
+  "dependenciesComments": {
+    "msw": "Vercelにデプロイするためにmswをdependenciesに入れておく必要がある"
   },
   "devDependencies": {
     "@chromatic-com/storybook": "^3.2.3",
