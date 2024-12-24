@@ -15,10 +15,6 @@ jobs:
       - uses: oven-sh/setup-bun@v2
         with:
           fetch-depth: 0
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 22
-          cache: "bun"
       - run: bun install
       - run: bun index.ts
       - run: bun run build
