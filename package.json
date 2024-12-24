@@ -10,8 +10,8 @@
     "sb": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },
+  "//": "Vercelにデプロイするためにmswをdependenciesに入れておく必要がある",
   "dependencies": {
-    "memo-for-msw": "Vercelにデプロイするためにmswをdependenciesに入れておく必要がある",
     "msw": "^2.7.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
