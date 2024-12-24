@@ -12,13 +12,16 @@ jobs:
     # Job steps
     steps:
       - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v2
         with:
           fetch-depth: 0
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
-          cache: "yarn"
-      - run: yarn
+          node-version: 22
+          cache: "bun"
+      - run: bun install
+      - run: bun index.ts
+      - run: bun run build
       #👇 Adds Chromatic as a step in the workflow
       - uses: chromaui/action@latest
         # Options required for Chromatic's GitHub Action
