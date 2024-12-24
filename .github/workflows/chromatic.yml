@@ -12,9 +12,9 @@ jobs:
     # Job steps
     steps:
       - uses: actions/checkout@v4
-      - uses: oven-sh/setup-bun@v2
         with:
           fetch-depth: 0
+      - uses: oven-sh/setup-bun@v2
       - run: bun install
       #👇 Adds Chromatic as a step in the workflow
       - uses: chromaui/action@latest
