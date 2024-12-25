@@ -6,8 +6,8 @@ const config: StorybookConfig = {
     "@storybook/addon-onboarding",
     "@storybook/addon-essentials",
     "@chromatic-com/storybook",
-    "@storybook/addon-interactions",
-    "@storybook/addon-a11y"
+    "@storybook/addon-a11y",
+    "@storybook/experimental-addon-test"
   ],
   core: {
     builder: "@storybook/builder-vite",
