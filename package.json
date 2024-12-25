@@ -23,6 +23,7 @@
     "@chromatic-com/storybook": "^3.2.3",
     "@eslint/js": "^9.17.0",
     "@radix-ui/react-slot": "^1.1.1",
+    "@storybook/addon-a11y": "^8.4.7",
     "@storybook/addon-essentials": "^8.4.7",
     "@storybook/addon-interactions": "^8.4.7",
     "@storybook/addon-onboarding": "^8.4.7",
@@ -54,7 +55,8 @@
     "tailwindcss-animate": "^1.0.7",
     "typescript": "~5.6.2",
     "typescript-eslint": "^8.18.1",
-    "vite": "^6.0.3"
+    "vite": "^6.0.3",
+    "vitest": "^2.1.8"
   },
   "eslintConfig": {
     "extends": [
