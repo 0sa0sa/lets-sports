@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
-    "lint": "eslint .",
+    "check": "biome check",
+    "fix": "biome check --write",
     "test": "vitest --project=storybook",
     "sb": "storybook dev -p 6006",
     "build-storybook": "storybook build"
@@ -21,6 +22,7 @@
     "msw": "Vercelにデプロイするためにmswをdependenciesに入れておく必要がある"
   },
   "devDependencies": {
+    "@biomejs/biome": "1.9.4",
     "@chromatic-com/storybook": "^3.2.3",
     "@eslint/js": "^9.17.0",
     "@radix-ui/react-slot": "^1.1.1",
