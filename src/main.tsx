@@ -2,9 +2,9 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import "./index.css";
 
+import { RouterProvider, createRouter } from "@tanstack/react-router";
 // Import the generated route tree
 import { routeTree } from "./routeTree.gen";
-import { createRouter, RouterProvider } from "@tanstack/react-router";
 
 const router = createRouter({ routeTree });
 
@@ -27,9 +27,11 @@ async function enableMocking() {
 }
 
 enableMocking().then(() => {
+  // NOTE: 基本的にundefinedになることはないので!をつける
+  // biome-ignore lint/style/noNonNullAssertion: <explanation>
   createRoot(document.getElementById("root")!).render(
     <StrictMode>
       <RouterProvider router={router} />
-    </StrictMode>
+    </StrictMode>,
   );
 });
