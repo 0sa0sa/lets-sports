@@ -1,15 +1,13 @@
 import { Button } from "@/components/ui/button";
-import { Header } from "@/stories/Header";
-import { createLazyFileRoute } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
 
-export const Route = createLazyFileRoute("/")({
+export const Route = createFileRoute("/")({
   component: Index,
 });
 
-function Index() {
+export function Index() {
   return (
     <div className="p-2">
-      <Header />
       <Button>This is shadcn/ui button</Button>
       <h3>Welcome Home!</h3>
     </div>

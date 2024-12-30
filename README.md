@@ -6,6 +6,19 @@ logo will be here.
 
 gif will be here.
 
+## Features
+
+1. 検索機能
+
+   - スポーツ検索
+   - 期間検索
+   - 場所検索
+   - 施設検索
+
+2. スポーツセンター一覧
+   - 施設の利用可能スポーツの割合
+   - 場所
+
 # Installation
 
 ```shell
