@@ -5,7 +5,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { Search } from "lucide-react";
 import { z } from "zod";
 import { useForm } from "react-hook-form";
-import { Form, FormField, FormItem } from "@/components/ui/form";
+import { Form, FormField } from "@/components/ui/form";
 import { CardCheckbox } from "@/components/card-checkbox";
 
 export const Route = createFileRoute("/search/")({
@@ -40,7 +40,7 @@ export function SearchPage() {
               {/* <CheckboxFormItem /> */}
               <FormField
                 name="mobile"
-                render={({ field }) => (
+                render={() => (
                   <div className="flex flex-row gap-3 m-0">
                     <CardCheckbox id="fuga" label="hoge" checked />
                     <CardCheckbox id="fuga" label="hoge" checked />
