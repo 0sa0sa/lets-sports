@@ -5,11 +5,13 @@ import { TanStackRouterDevtools } from "@tanstack/router-devtools";
 
 export const Route = createRootRoute({
   component: () => (
-    <SidebarProvider>
-      <AppSidebar />
-      <hr />
-      <Outlet />
-      <TanStackRouterDevtools />
-    </SidebarProvider>
+    <div className="bg-blue-50">
+      <SidebarProvider>
+        <AppSidebar />
+        <hr />
+          <Outlet />
+        <TanStackRouterDevtools />
+      </SidebarProvider>
+    </div>
   ),
 });

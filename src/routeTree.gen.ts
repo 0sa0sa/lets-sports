@@ -8,92 +8,144 @@
 // You should NOT make any changes in this file as it will be overwritten.
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
-import { createFileRoute } from "@tanstack/react-router";
-
 // Import Routes
 
-import { Route as rootRoute } from "./routes/__root";
-import { Route as IndexImport } from "./routes/index";
-
-// Create Virtual Routes
-
-const AboutLazyImport = createFileRoute("/about")();
+import { Route as rootRoute } from "./routes/__root"
+import { Route as IndexImport } from "./routes/index"
+import { Route as SearchIndexImport } from "./routes/search/index"
+import { Route as ReserveIndexImport } from "./routes/reserve/index"
+import { Route as ContactIndexImport } from "./routes/contact/index"
+import { Route as AboutIndexImport } from "./routes/about/index"
 
 // Create/Update Routes
-
-const AboutLazyRoute = AboutLazyImport.update({
-  id: "/about",
-  path: "/about",
-  getParentRoute: () => rootRoute,
-} as any).lazy(() => import("./routes/about").then(d => d.Route));
 
 const IndexRoute = IndexImport.update({
   id: "/",
   path: "/",
   getParentRoute: () => rootRoute,
-} as any);
+} as any)
+
+const SearchIndexRoute = SearchIndexImport.update({
+  id: "/search/",
+  path: "/search/",
+  getParentRoute: () => rootRoute,
+} as any)
+
+const ReserveIndexRoute = ReserveIndexImport.update({
+  id: "/reserve/",
+  path: "/reserve/",
+  getParentRoute: () => rootRoute,
+} as any)
+
+const ContactIndexRoute = ContactIndexImport.update({
+  id: "/contact/",
+  path: "/contact/",
+  getParentRoute: () => rootRoute,
+} as any)
+
+const AboutIndexRoute = AboutIndexImport.update({
+  id: "/about/",
+  path: "/about/",
+  getParentRoute: () => rootRoute,
+} as any)
 
 // Populate the FileRoutesByPath interface
 
 declare module "@tanstack/react-router" {
   interface FileRoutesByPath {
     "/": {
-      id: "/";
-      path: "/";
-      fullPath: "/";
-      preLoaderRoute: typeof IndexImport;
-      parentRoute: typeof rootRoute;
-    };
-    "/about": {
-      id: "/about";
-      path: "/about";
-      fullPath: "/about";
-      preLoaderRoute: typeof AboutLazyImport;
-      parentRoute: typeof rootRoute;
-    };
+      id: "/"
+      path: "/"
+      fullPath: "/"
+      preLoaderRoute: typeof IndexImport
+      parentRoute: typeof rootRoute
+    }
+    "/about/": {
+      id: "/about/"
+      path: "/about"
+      fullPath: "/about"
+      preLoaderRoute: typeof AboutIndexImport
+      parentRoute: typeof rootRoute
+    }
+    "/contact/": {
+      id: "/contact/"
+      path: "/contact"
+      fullPath: "/contact"
+      preLoaderRoute: typeof ContactIndexImport
+      parentRoute: typeof rootRoute
+    }
+    "/reserve/": {
+      id: "/reserve/"
+      path: "/reserve"
+      fullPath: "/reserve"
+      preLoaderRoute: typeof ReserveIndexImport
+      parentRoute: typeof rootRoute
+    }
+    "/search/": {
+      id: "/search/"
+      path: "/search"
+      fullPath: "/search"
+      preLoaderRoute: typeof SearchIndexImport
+      parentRoute: typeof rootRoute
+    }
   }
 }
 
 // Create and export the route tree
 
 export interface FileRoutesByFullPath {
-  "/": typeof IndexRoute;
-  "/about": typeof AboutLazyRoute;
+  "/": typeof IndexRoute
+  "/about": typeof AboutIndexRoute
+  "/contact": typeof ContactIndexRoute
+  "/reserve": typeof ReserveIndexRoute
+  "/search": typeof SearchIndexRoute
 }
 
 export interface FileRoutesByTo {
-  "/": typeof IndexRoute;
-  "/about": typeof AboutLazyRoute;
+  "/": typeof IndexRoute
+  "/about": typeof AboutIndexRoute
+  "/contact": typeof ContactIndexRoute
+  "/reserve": typeof ReserveIndexRoute
+  "/search": typeof SearchIndexRoute
 }
 
 export interface FileRoutesById {
-  __root__: typeof rootRoute;
-  "/": typeof IndexRoute;
-  "/about": typeof AboutLazyRoute;
+  __root__: typeof rootRoute
+  "/": typeof IndexRoute
+  "/about/": typeof AboutIndexRoute
+  "/contact/": typeof ContactIndexRoute
+  "/reserve/": typeof ReserveIndexRoute
+  "/search/": typeof SearchIndexRoute
 }
 
 export interface FileRouteTypes {
-  fileRoutesByFullPath: FileRoutesByFullPath;
-  fullPaths: "/" | "/about";
-  fileRoutesByTo: FileRoutesByTo;
-  to: "/" | "/about";
-  id: "__root__" | "/" | "/about";
-  fileRoutesById: FileRoutesById;
+  fileRoutesByFullPath: FileRoutesByFullPath
+  fullPaths: "/" | "/about" | "/contact" | "/reserve" | "/search"
+  fileRoutesByTo: FileRoutesByTo
+  to: "/" | "/about" | "/contact" | "/reserve" | "/search"
+  id: "__root__" | "/" | "/about/" | "/contact/" | "/reserve/" | "/search/"
+  fileRoutesById: FileRoutesById
 }
 
 export interface RootRouteChildren {
-  IndexRoute: typeof IndexRoute;
-  AboutLazyRoute: typeof AboutLazyRoute;
+  IndexRoute: typeof IndexRoute
+  AboutIndexRoute: typeof AboutIndexRoute
+  ContactIndexRoute: typeof ContactIndexRoute
+  ReserveIndexRoute: typeof ReserveIndexRoute
+  SearchIndexRoute: typeof SearchIndexRoute
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  AboutLazyRoute: AboutLazyRoute,
-};
+  AboutIndexRoute: AboutIndexRoute,
+  ContactIndexRoute: ContactIndexRoute,
+  ReserveIndexRoute: ReserveIndexRoute,
+  SearchIndexRoute: SearchIndexRoute,
+}
 
 export const routeTree = rootRoute
   ._addFileChildren(rootRouteChildren)
-  ._addFileTypes<FileRouteTypes>();
+  ._addFileTypes<FileRouteTypes>()
 
 /* ROUTE_MANIFEST_START
 {
@@ -102,14 +154,26 @@ export const routeTree = rootRoute
       "filePath": "__root.tsx",
       "children": [
         "/",
-        "/about"
+        "/about/",
+        "/contact/",
+        "/reserve/",
+        "/search/"
       ]
     },
     "/": {
       "filePath": "index.tsx"
     },
-    "/about": {
-      "filePath": "about.lazy.tsx"
+    "/about/": {
+      "filePath": "about/index.tsx"
+    },
+    "/contact/": {
+      "filePath": "contact/index.tsx"
+    },
+    "/reserve/": {
+      "filePath": "reserve/index.tsx"
+    },
+    "/search/": {
+      "filePath": "search/index.tsx"
     }
   }
 }

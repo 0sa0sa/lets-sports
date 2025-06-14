@@ -1,15 +1,9 @@
-import { Button } from "@/components/ui/button";
-import { createFileRoute } from "@tanstack/react-router";
+import { Navigate, createFileRoute } from "@tanstack/react-router";
 
 export const Route = createFileRoute("/")({
-  component: Index,
+  component: IndexPage,
 });
 
-export function Index() {
-  return (
-    <div className="p-2">
-      <Button>This is shadcn/ui button</Button>
-      <h3>Welcome Home!</h3>
-    </div>
-  );
+export function IndexPage() {
+  return <Navigate to="/search" />;
 }
