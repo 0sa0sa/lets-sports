@@ -5,9 +5,10 @@ type Props = {
   id: string;
   label: string;
   checked: boolean;
+  onCheckedChange?: (checked: boolean) => void;
 };
 
-export function CardCheckbox({ id, label, checked }: Props) {
+export function CardCheckbox({ id, label, checked, onCheckedChange }: Props) {
   return (
     <label
       htmlFor={id}
@@ -16,7 +17,12 @@ export function CardCheckbox({ id, label, checked }: Props) {
         checked ? "bg-blue-200" : ""
       )}
     >
-      <Checkbox id={id} className="h-5 w-5" />
+      <Checkbox
+        id={id}
+        className="h-5 w-5"
+        checked={checked}
+        onCheckedChange={onCheckedChange}
+      />
       <span className="text-sm font-medium">{label}</span>
     </label>
   );
