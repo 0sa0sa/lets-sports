@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { SearchPage as Component } from "../index";
+import { IndexPage as Component } from "../index";
 
 const meta = {
   title: "Page",

@@ -1,15 +1,15 @@
 import { CardCheckbox } from "@/components/card-checkbox";
 import { FormField, FormItem } from "@/components/ui/form";
 
-type Props = {
-  name: 'sports' | 'place' | 'date'
-}
+// type Props = {
+//   name: "sports" | "place" | "date";
+// };
 
 export function CheckboxFormItem() {
   return (
     <FormField
       name="mobile"
-      render={({ field }) => (
+      render={() => (
         <FormItem>
           {/* <FormControl> */}
           <CardCheckbox id="fuga" label="hoge" checked />
